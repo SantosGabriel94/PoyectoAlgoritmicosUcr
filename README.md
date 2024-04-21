@@ -1,2 +1,2 @@
-# PoyectoAlgoritmicosUcr
+# PoyectoAlgoritmicos
 Proyecto 011
