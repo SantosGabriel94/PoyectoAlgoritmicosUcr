@@ -4,7 +4,7 @@
  */
 package proyectostreaming;
 
-import View.Gui;
+//import View.Gui;
 
 /**
  *
@@ -17,9 +17,9 @@ public class ProyectoStreaming {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        Gui gui = new Gui(); 
-        gui.setVisible(true);
-        gui.setLocationRelativeTo(null);
+//        Gui gui = new Gui(); 
+//        gui.setVisible(true);
+//        gui.setLocationRelativeTo(null);
     }
     
 }
