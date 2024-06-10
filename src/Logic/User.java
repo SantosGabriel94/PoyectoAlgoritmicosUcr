@@ -70,7 +70,7 @@ public class User {
         return true;
     }
 
-    // Otros métodos, getters y setters (omitiendo para simplificar)
+    
 }
 
 
