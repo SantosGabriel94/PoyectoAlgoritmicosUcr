@@ -69,10 +69,6 @@ public class User {
         System.out.println("Perfil agregado correctamente.");
         return true;
     }
-
-    
 }
-
-
     
 

@@ -1,7 +1,8 @@
-
 package View;
 
+import Logic.Login;
 import static View.JFContainer.InitialJP;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -12,8 +13,11 @@ public class UserLoginJP extends javax.swing.JPanel {
     /**
      * Creates new form UserLoginJP
      */
+    private Login login;
+
     public UserLoginJP() {
         initComponents();
+        login = new Login();
     }
 
     /**
@@ -172,7 +176,19 @@ public class UserLoginJP extends javax.swing.JPanel {
     }//GEN-LAST:event_btnRegisterActionPerformed
 
     private void btnStartSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStartSActionPerformed
-        goToProfiles();
+        String username = txtUsername.getText().trim();
+        String password = txtPassword.getText().trim();
+
+        if (username.isEmpty() || password.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Por favor, ingrese el nombre de usuario y la contraseña.", "Campos vacíos", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        if (login.authenticate(username, password)) {
+            goToProfiles();
+        } else {
+            JOptionPane.showMessageDialog(this, "Usuario no existente o contraseña incorrecta", "Error de autenticación", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_btnStartSActionPerformed
 
     private void txtUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsernameActionPerformed
@@ -182,8 +198,8 @@ public class UserLoginJP extends javax.swing.JPanel {
     private void txtPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPasswordActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtPasswordActionPerformed
- 
-    public void goToProfiles(){
+
+    public void goToProfiles() {
         JFContainer c = new JFContainer();
         ProfileUserJP pu = new ProfileUserJP();
         pu.setSize(c.InitialJP.getSize());

@@ -1,18 +1,33 @@
 
 package View;
 
+import Logic.Login;
+import Logic.User;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author ADMIN
  */
 public class CreateProfilesJP extends javax.swing.JPanel {
+    
+    private Login login;
+    private String username;
 
     /**
      * Creates new form CreateProfilesJP
      */
-    public CreateProfilesJP() {
+    public CreateProfilesJP(Login login,String username) {
+        this.login = login;
+        this.username = username;
         initComponents();
+        // Configuración inicial de los campos.
+        
+       // preloadUserData();
+        
+        
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -25,13 +40,12 @@ public class CreateProfilesJP extends javax.swing.JPanel {
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        txtUsername = new javax.swing.JTextField();
-        txtPassword = new javax.swing.JTextField();
         txtAge = new javax.swing.JTextField();
-        btnCreat = new javax.swing.JButton();
+        txtProfileName = new javax.swing.JTextField();
+        btnCreatProfile = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
+        btnCancel = new javax.swing.JToggleButton();
 
         setBackground(new java.awt.Color(0, 0, 0));
 
@@ -44,32 +58,22 @@ public class CreateProfilesJP extends javax.swing.JPanel {
         jLabel2.setForeground(new java.awt.Color(255, 102, 102));
         jLabel2.setText("Username");
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 102, 102));
-        jLabel3.setText("Password");
-
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 102, 102));
         jLabel4.setText("Age");
 
-        txtUsername.addActionListener(new java.awt.event.ActionListener() {
+        txtProfileName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtUsernameActionPerformed(evt);
+                txtProfileNameActionPerformed(evt);
             }
         });
 
-        txtAge.addActionListener(new java.awt.event.ActionListener() {
+        btnCreatProfile.setBackground(new java.awt.Color(204, 204, 255));
+        btnCreatProfile.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnCreatProfile.setText("Creat");
+        btnCreatProfile.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtAgeActionPerformed(evt);
-            }
-        });
-
-        btnCreat.setBackground(new java.awt.Color(204, 204, 255));
-        btnCreat.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        btnCreat.setText("Creat");
-        btnCreat.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCreatActionPerformed(evt);
+                btnCreatProfileActionPerformed(evt);
             }
         });
 
@@ -77,32 +81,39 @@ public class CreateProfilesJP extends javax.swing.JPanel {
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logo (1).png"))); // NOI18N
         jLabel5.setText("jLabel5");
 
+        btnCancel.setText("Cancel");
+        btnCancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(190, Short.MAX_VALUE)
+            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 650, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel4)
-                    .addComponent(jLabel3)
                     .addComponent(jLabel2))
                 .addGap(65, 65, 65)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(txtAge, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(170, 170, 170))
-            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtAge, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtProfileName, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(171, 171, 171))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(287, 287, 287)
-                        .addComponent(btnCreat)))
+                        .addGap(280, 280, 280)
+                        .addComponent(btnCreatProfile))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -112,46 +123,100 @@ public class CreateProfilesJP extends javax.swing.JPanel {
                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel1)
-                .addGap(27, 27, 27)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtAge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(6, 6, 6)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(6, 6, 6)
+                    .addComponent(txtProfileName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
-                .addComponent(btnCreat, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(74, 74, 74))
+                    .addComponent(txtAge, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
+                .addComponent(btnCreatProfile, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(72, 72, 72)
+                .addComponent(btnCancel)
+                .addGap(24, 24, 24))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsernameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtUsernameActionPerformed
+    
+    
+    
+    
+    
+    private void btnCreatProfileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreatProfileActionPerformed
+       String profileName = txtProfileName.getText().trim();
+    if (profileName.isEmpty()) {
+        JOptionPane.showMessageDialog(this, "El nombre del perfil no puede estar vacío.", "Error", JOptionPane.ERROR_MESSAGE);
+        return;
+    }
 
-    private void btnCreatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreatActionPerformed
+    int age;
+    try {
+        age = Integer.parseInt(txtAge.getText().trim());
+    } catch (NumberFormatException e) {
+        JOptionPane.showMessageDialog(this, "La edad debe ser un número válido.", "Error", JOptionPane.ERROR_MESSAGE);
+        return;
+    }
+
+    User user = login.getUser(username);
+    if (user == null) {
+        JOptionPane.showMessageDialog(this, "No se encontró el usuario.", "Error", JOptionPane.ERROR_MESSAGE);
+        return;
+    }
+
+    if (user.agregarPerfil(profileName, age)) {
+        login.saveUsers();  // Guardar los cambios en el archivo XML.
+        int option = JOptionPane.showConfirmDialog(this,
+            "Perfil creado exitosamente. ¿Desea agregar otro perfil?",
+            "Perfil Creado",
+            JOptionPane.YES_NO_OPTION,
+            JOptionPane.QUESTION_MESSAGE);
+
+        if (option == JOptionPane.YES_OPTION) {
+            txtProfileName.setText("");  // Limpiar campo de nombre del perfil
+            txtAge.setText("");  // Limpiar campo de edad
+        } else {
+            // Cambiar a la pantalla de inicio de sesión
+            changeToLoginPanel();
+        }
+    } else {
+        JOptionPane.showMessageDialog(this, "No se pudo agregar el perfil. Puede que el perfil ya exista o hayas alcanzado el límite de perfiles.", "Error", JOptionPane.ERROR_MESSAGE);
+    }
+     
+    }//GEN-LAST:event_btnCreatProfileActionPerformed
+
+    
+    
+    
+    
+    
+    private void txtProfileNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtProfileNameActionPerformed
+       
+    }//GEN-LAST:event_txtProfileNameActionPerformed
+
+    private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
         
-    }//GEN-LAST:event_btnCreatActionPerformed
+    }//GEN-LAST:event_btnCancelActionPerformed
 
-    private void txtAgeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAgeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtAgeActionPerformed
-
+    
+    private void changeToLoginPanel() {
+    UserLoginJP loginPanel = new UserLoginJP(); // Asume que tienes un constructor adecuado para UserLoginJP
+    loginPanel.setSize(this.getSize());
+    this.removeAll();
+    this.add(loginPanel);
+    this.revalidate();
+    this.repaint();
+}
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnCreat;
+    private javax.swing.JToggleButton btnCancel;
+    private javax.swing.JButton btnCreatProfile;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JTextField txtAge;
-    private javax.swing.JTextField txtPassword;
-    private javax.swing.JTextField txtUsername;
+    private javax.swing.JTextField txtProfileName;
     // End of variables declaration//GEN-END:variables
 }

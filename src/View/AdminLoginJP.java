@@ -1,19 +1,19 @@
-
 package View;
 
-import static View.JFContainer.InitialJP;
+import Logic.AdminLogin;
 
-/**
- *
- * @author ADMIN
- */
 public class AdminLoginJP extends javax.swing.JPanel {
 
-    /**
-     * Creates new form AdminLoginJP
-     */
+    private AdminLogin adminLogin;
+
     public AdminLoginJP() {
         initComponents();
+        adminLogin = new AdminLogin(); // Inicializar AdminLogin
+        btnStartS.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnStartSActionPerformed(evt);
+            }
+        });
     }
 
     /**
@@ -68,6 +68,11 @@ public class AdminLoginJP extends javax.swing.JPanel {
         btnStartS.setBackground(new java.awt.Color(204, 204, 255));
         btnStartS.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnStartS.setText("Start Session");
+        btnStartS.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnStartSActionPerformed(evt);
+            }
+        });
 
         jButton2.setBackground(new java.awt.Color(0, 0, 0));
         jButton2.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
@@ -146,6 +151,25 @@ public class AdminLoginJP extends javax.swing.JPanel {
         this.repaint();
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void btnStartSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStartSActionPerformed
+
+        String username = txtUsername.getText();
+        String password = txtPassword.getText();
+        String result = adminLogin.authenticate(username, password);
+
+        if (result.equals("Admin login successful.")) {
+
+            TvOrStreamJP tvOrStreamJP = new TvOrStreamJP();
+            tvOrStreamJP.setSize(this.getSize());
+            this.removeAll();
+            this.add(tvOrStreamJP);
+            this.revalidate();
+            this.repaint();
+        } else {
+            javax.swing.JOptionPane.showMessageDialog(this, result, "Login Failed", javax.swing.JOptionPane.ERROR_MESSAGE);
+        }
+
+    }//GEN-LAST:event_btnStartSActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnStartS;

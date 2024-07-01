@@ -97,20 +97,15 @@ public class ProfileUserJP extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnMoreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMoreActionPerformed
-        JFContainer c = new JFContainer();
-        CreateProfilesJP cp = new CreateProfilesJP();
-        cp.setSize(c.InitialJP.getSize());
-        this.removeAll();
-        this.add(cp);
-        this.revalidate();
-        this.repaint();
+        
     }//GEN-LAST:event_btnMoreActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        ProfileUserJP pu = new ProfileUserJP();
-        pu.setSize(this.getSize());
+        JFContainer c = new JFContainer();
+        UserLoginJP ul = new UserLoginJP();
+            ul.setSize(c.InitialJP.getSize());
         this.removeAll();
-        this.add(pu);
+        this.add(ul);
         this.revalidate();
         this.repaint();
     }//GEN-LAST:event_jButton2ActionPerformed
