@@ -4,6 +4,8 @@
  */
 package main;
 
+import Logic.Login;
+import View.CreateProfilesJP;
 import View.JFContainer;
 
 /**
@@ -19,6 +21,8 @@ public class Main {
         JFContainer gui = new JFContainer();
         gui.setVisible(true);
         gui.setLocationRelativeTo(null);
+        
+        
     }
 
 }

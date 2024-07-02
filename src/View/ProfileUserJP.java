@@ -1,16 +1,24 @@
 
 package View;
 
+import Logic.Login;
+
 /**
  *
  * @author ADMIN
  */
 public class ProfileUserJP extends javax.swing.JPanel {
+    
+    private Login login;
+    private String username;
 
     /**
      * Creates new form ProfileUserJP
      */
-    public ProfileUserJP() {
+    public ProfileUserJP(Login login, String username) {
+        this.login = login;
+        this.username = username;
+        
         initComponents();
     }
 
@@ -25,7 +33,7 @@ public class ProfileUserJP extends javax.swing.JPanel {
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        btnMore = new javax.swing.JButton();
+        btnAddProfile = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
 
@@ -40,10 +48,10 @@ public class ProfileUserJP extends javax.swing.JPanel {
         jLabel2.setForeground(new java.awt.Color(255, 102, 102));
         jLabel2.setText("Profiles...");
 
-        btnMore.setText("+");
-        btnMore.addActionListener(new java.awt.event.ActionListener() {
+        btnAddProfile.setText("+");
+        btnAddProfile.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnMoreActionPerformed(evt);
+                btnAddProfileActionPerformed(evt);
             }
         });
 
@@ -69,7 +77,7 @@ public class ProfileUserJP extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel2)
                 .addGap(55, 55, 55)
-                .addComponent(btnMore)
+                .addComponent(btnAddProfile)
                 .addGap(264, 264, 264))
             .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 650, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
@@ -89,35 +97,36 @@ public class ProfileUserJP extends javax.swing.JPanel {
                 .addGap(60, 60, 60)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2)
-                    .addComponent(btnMore))
+                    .addComponent(btnAddProfile))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 149, Short.MAX_VALUE)
                 .addComponent(jButton2)
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnMoreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMoreActionPerformed
-        JFContainer c = new JFContainer();
-        CreateProfilesJP cp = new CreateProfilesJP();
-        cp.setSize(c.InitialJP.getSize());
+    private void btnAddProfileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddProfileActionPerformed
+        CreateProfilesJP2 createProfilePanel = new CreateProfilesJP2(login, username);
+        createProfilePanel.setSize(this.getSize());
         this.removeAll();
-        this.add(cp);
+        this.add(createProfilePanel);
         this.revalidate();
         this.repaint();
-    }//GEN-LAST:event_btnMoreActionPerformed
+    }//GEN-LAST:event_btnAddProfileActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        ProfileUserJP pu = new ProfileUserJP();
-        pu.setSize(this.getSize());
+        JFContainer c = new JFContainer();
+        UserLoginJP ul = new UserLoginJP();
+            ul.setSize(c.InitialJP.getSize());
         this.removeAll();
-        this.add(pu);
+        this.add(ul);
         this.revalidate();
         this.repaint();
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnMore;
+    private javax.swing.JButton btnAddProfile;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
