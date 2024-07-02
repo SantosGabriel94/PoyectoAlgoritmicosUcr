@@ -1,4 +1,4 @@
-package TDA.DoubleLinkedList;
+package TDA.DoublyLinkedList;
 
 public interface List {
 

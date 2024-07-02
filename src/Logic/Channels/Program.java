@@ -1,4 +1,3 @@
-
 package Logic.Channels;
 
 import TDA.DynamicStack.DynamicStack;
@@ -6,7 +5,7 @@ import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 
 public class Program {
-    
+
     private String title;
     private LocalTime schedule;
 
@@ -38,10 +37,8 @@ public class Program {
     public String toString() {
         return "title:" + title + ", schedule:" + schedule;
     }
-    
-    
 
-   public static void main(String[] args) {
+    public static void main(String[] args) {
         // Crear una instancia de LocalTime usando el método of(int hour, int minute)
         LocalTime horaActual = LocalTime.of(13, 30);
         System.out.println("Hora actual creada con LocalTime.of(): " + horaActual);
@@ -52,7 +49,7 @@ public class Program {
 
         // Crear otra instancia de LocalTime para comparar
         LocalTime otraHora = LocalTime.of(12, 0);
-        
+
         // Comparar horas usando el método isBefore(LocalTime other)
         if (horaActual.isBefore(otraHora)) {
             System.out.println(horaActual + " es antes de " + otraHora);
@@ -73,6 +70,4 @@ public class Program {
         String horaFormateada = horaActual.format(formatter);
         System.out.println("Hora formateada: " + horaFormateada);
     }
-
-   
 }
