@@ -330,13 +330,25 @@ public class Channel {
 
         try {
             channelGraph.addEdge(channel1, channel2);
+            channelGraph.addEdge(channel1, channel3);
+            channelGraph.addEdge(channel1, channel4);
+            channelGraph.addEdge(channel1, channel5);
+            channelGraph.addEdge(channel1, channel6);
+            
             channelGraph.addEdge(channel2, channel3);
+            channelGraph.addEdge(channel2, channel4);
+            channelGraph.addEdge(channel2, channel5);
+            channelGraph.addEdge(channel2, channel6);
+            
             channelGraph.addEdge(channel3, channel4);
-            channelGraph.addEdge(channel4, channel1);
             channelGraph.addEdge(channel3, channel5);
             channelGraph.addEdge(channel3, channel6);
+            
+            channelGraph.addEdge(channel4, channel5);
+            channelGraph.addEdge(channel4, channel6);
+            
             channelGraph.addEdge(channel5, channel6);
-            channelGraph.addEdge(channel6, channel1);
+            
         } catch (GraphException e) {
             System.out.println("Error: " + e.getMessage());
         }
