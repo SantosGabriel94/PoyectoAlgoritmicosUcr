@@ -92,272 +92,290 @@ public class Channel{
     }
     
     public void insertProgram(int channelNumber, String title, int hour, int minute) {
-        LocalTime schedule = LocalTime.of(hour, minute);
-        Program prg = new Program(title, schedule);
-        DynamicStack aux = new DynamicStack(); 
-        
-        switch (channelNumber) {
-        case 1:
-            
-            if (channel1.isEmpty()) {
-                channel1.push(prg); 
-            } else {
-                Program p;
-                do {
-                    p = (Program) channel1.top();
-                    if (schedule.isAfter(p.getSchedule())) {
-                        aux.push(channel1.pop());
-                        } else {
-                            break;
+       
+        if (!(hour < 0 || hour > 23 || minute < 0 || minute > 59)) {
+
+            LocalTime schedule = LocalTime.of(hour, minute);
+            Program prg = new Program(title, schedule);
+            DynamicStack aux = new DynamicStack();
+
+            switch (channelNumber) {
+                case 1:
+
+                    if (channel1.isEmpty()) {
+                        channel1.push(prg);
+                    } else {
+                        Program p;
+                        do {
+                            p = (Program) channel1.top();
+                            if (schedule.isAfter(p.getSchedule())) {
+                                aux.push(channel1.pop());
+                            } else {
+                                break;
+                            }
+                        } while (!channel1.isEmpty());
+
+                        channel1.push(prg);
+                        while (!aux.isEmpty()) {
+                            channel1.push(aux.pop());
                         }
-                    } while (!channel1.isEmpty());
-
-                    channel1.push(prg);
-                    while (!aux.isEmpty()) {
-                        channel1.push(aux.pop());
                     }
-                }
-                break;
+                    break;
 
-            case 2:
-                
-                if (channel2.isEmpty()) {
-                    channel2.push(prg);
-                } else {
-                    Program p;
-                    do {
-                        p = (Program) channel2.top();
-                        if (schedule.isAfter(p.getSchedule())) {
-                            aux.push(channel2.pop());
-                        } else {
-                            break;
+                case 2:
+
+                    if (channel2.isEmpty()) {
+                        channel2.push(prg);
+                    } else {
+                        Program p;
+                        do {
+                            p = (Program) channel2.top();
+                            if (schedule.isAfter(p.getSchedule())) {
+                                aux.push(channel2.pop());
+                            } else {
+                                break;
+                            }
+                        } while (!channel2.isEmpty());
+
+                        channel2.push(prg);
+                        while (!aux.isEmpty()) {
+                            channel2.push(aux.pop());
                         }
-                    } while (!channel2.isEmpty());
-
-                    channel2.push(prg);
-                    while (!aux.isEmpty()) {
-                        channel2.push(aux.pop());
                     }
-                }
-                break;
+                    break;
 
-            case 3:
-                
-                if (channel3.isEmpty()) {
-                    channel3.push(prg);
-                } else {
-                    Program p;
-                    do {
-                        p = (Program) channel3.top();
-                        if (schedule.isAfter(p.getSchedule())) {
-                            aux.push(channel3.pop());
-                        } else {
-                            break;
+                case 3:
+
+                    if (channel3.isEmpty()) {
+                        channel3.push(prg);
+                    } else {
+                        Program p;
+                        do {
+                            p = (Program) channel3.top();
+                            if (schedule.isAfter(p.getSchedule())) {
+                                aux.push(channel3.pop());
+                            } else {
+                                break;
+                            }
+                        } while (!channel3.isEmpty());
+
+                        channel3.push(prg);
+                        while (!aux.isEmpty()) {
+                            channel3.push(aux.pop());
                         }
-                    } while (!channel3.isEmpty());
-
-                    channel3.push(prg);
-                    while (!aux.isEmpty()) {
-                        channel3.push(aux.pop());
                     }
-                }
-                break;
+                    break;
 
-            case 4:
-                
-                if (channel4.isEmpty()) {
-                    channel4.push(prg);
-                } else {
-                    Program p;
-                    do {
-                        p = (Program) channel4.top();
-                        if (schedule.isAfter(p.getSchedule())) {
-                            aux.push(channel4.pop());
-                        } else {
-                            break;
+                case 4:
+
+                    if (channel4.isEmpty()) {
+                        channel4.push(prg);
+                    } else {
+                        Program p;
+                        do {
+                            p = (Program) channel4.top();
+                            if (schedule.isAfter(p.getSchedule())) {
+                                aux.push(channel4.pop());
+                            } else {
+                                break;
+                            }
+                        } while (!channel4.isEmpty());
+
+                        channel4.push(prg);
+                        while (!aux.isEmpty()) {
+                            channel4.push(aux.pop());
                         }
-                    } while (!channel4.isEmpty());
-
-                    channel4.push(prg);
-                    while (!aux.isEmpty()) {
-                        channel4.push(aux.pop());
                     }
-                }
-                break;
+                    break;
 
-            case 5:
-                
-                if (channel5.isEmpty()) {
-                    channel5.push(prg);
-                } else {
-                    Program p;
-                    do {
-                        p = (Program) channel5.top();
-                        if (schedule.isAfter(p.getSchedule())) {
-                            aux.push(channel5.pop());
-                        } else {
-                            break;
+                case 5:
+
+                    if (channel5.isEmpty()) {
+                        channel5.push(prg);
+                    } else {
+                        Program p;
+                        do {
+                            p = (Program) channel5.top();
+                            if (schedule.isAfter(p.getSchedule())) {
+                                aux.push(channel5.pop());
+                            } else {
+                                break;
+                            }
+                        } while (!channel5.isEmpty());
+
+                        channel5.push(prg);
+                        while (!aux.isEmpty()) {
+                            channel5.push(aux.pop());
                         }
-                    } while (!channel5.isEmpty());
-
-                    channel5.push(prg);
-                    while (!aux.isEmpty()) {
-                        channel5.push(aux.pop());
                     }
-                }
-                break;
+                    break;
 
-            case 6:
-         
-                if (channel6.isEmpty()) {
-                    channel6.push(prg);
-                } else {
-                    Program p;
-                    do {
-                        p = (Program) channel6.top();
-                        if (schedule.isAfter(p.getSchedule())) {
-                            aux.push(channel6.pop());
-                        } else {
-                            break;
+                case 6:
+
+                    if (channel6.isEmpty()) {
+                        channel6.push(prg);
+                    } else {
+                        Program p;
+                        do {
+                            p = (Program) channel6.top();
+                            if (schedule.isAfter(p.getSchedule())) {
+                                aux.push(channel6.pop());
+                            } else {
+                                break;
+                            }
+                        } while (!channel6.isEmpty());
+
+                        channel6.push(prg);
+                        while (!aux.isEmpty()) {
+                            channel6.push(aux.pop());
                         }
-                    } while (!channel6.isEmpty());
-
-                    channel6.push(prg);
-                    while (!aux.isEmpty()) {
-                        channel6.push(aux.pop());
                     }
-                }
-                break;
+                    break;
 
-           default:
-               JOptionPane.showMessageDialog(null,"Channel "+channelNumber+" does not exit");
-               break;
-       }
+                default:
+                    JOptionPane.showMessageDialog(null, "Channel " + channelNumber + " does not exit");
+                    break;
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Error when entering schedule data");
+        }
     }
     
     public void editProgram(int channelNumber, String title, String newTitle, int hour, int minute){
-        LocalTime newSchedule = LocalTime.of(hour, minute);
-        DynamicStack aux = new DynamicStack();
-        DynamicStack aux1 = new DynamicStack();
-        Program p;
         
-         switch (channelNumber) {
-            case 1:
-                if(channel1.isEmpty())
-                    JOptionPane.showMessageDialog(null,"This channel is empty");
-                while (!channel1.isEmpty()) {
-                    p = (Program) channel1.top();
-                    if (p.getTitle().equalsIgnoreCase(title)) {
-                        p.setSchedule(newSchedule);
-                        p.setTitle(newTitle);
-                        aux1.push(channel1.pop());
-                    } else {
-                        aux.push(channel1.pop()); 
+        if (!(hour < 0 || hour > 23 || minute < 0 || minute > 59)) {
+            
+            LocalTime newSchedule = LocalTime.of(hour, minute);
+            DynamicStack aux = new DynamicStack();
+            DynamicStack aux1 = new DynamicStack();
+            Program p;
+
+            switch (channelNumber) {
+                case 1:
+                    if (channel1.isEmpty()) {
+                        JOptionPane.showMessageDialog(null, "This channel is empty");
                     }
-                }
-                
-                while (!aux.isEmpty()) {
-                    channel1.push(aux.pop());
-                }
-                insertProgram(1, newTitle, hour, minute);
-                 break;
-             case 2:
-                 if(channel2.isEmpty())
-                    JOptionPane.showMessageDialog(null,"This channel is empty");
-                 while (!channel2.isEmpty()) {
-                    p = (Program) channel2.top();
-                    if (p.getTitle().equalsIgnoreCase(title)) {
-                        p.setSchedule(newSchedule);
-                        p.setTitle(newTitle);
-                        aux1.push(channel2.pop());
-                    } else {
-                        aux.push(channel2.pop());
+                    while (!channel1.isEmpty()) {
+                        p = (Program) channel1.top();
+                        if (p.getTitle().equalsIgnoreCase(title)) {
+                            p.setSchedule(newSchedule);
+                            p.setTitle(newTitle);
+                            aux1.push(channel1.pop());
+                        } else {
+                            aux.push(channel1.pop());
+                        }
                     }
-                }
-                
-                while (!aux.isEmpty()) {
-                    channel2.push(aux.pop());
-                }
-                insertProgram(2, newTitle, hour, minute);
-                 break;
-             case 3:
-                 if(channel3.isEmpty())
-                    JOptionPane.showMessageDialog(null,"This channel is empty");
-                while (!channel3.isEmpty()) {
-                    p = (Program) channel3.top();
-                    if (p.getTitle().equalsIgnoreCase(title)) {                       
-                        p.setSchedule(newSchedule);
-                        p.setTitle(newTitle);
-                        aux1.push(channel3.pop());
-                    } else {
-                        aux.push(channel3.pop()); 
+
+                    while (!aux.isEmpty()) {
+                        channel1.push(aux.pop());
                     }
-                }
-               
-                while (!aux.isEmpty()) {
-                    channel3.push(aux.pop());
-                }
-                insertProgram(3, newTitle, hour, minute);
-                break;
-            case 4:
-                if(channel4.isEmpty())
-                    JOptionPane.showMessageDialog(null,"This channel is empty");
-                while (!channel4.isEmpty()) {
-                    p = (Program) channel4.top();
-                    if (p.getTitle().equalsIgnoreCase(title)) {                     
-                        p.setSchedule(newSchedule);
-                        p.setTitle(newTitle);
-                        aux1.push(channel4.pop());
-                    } else {
-                        aux.push(channel4.pop()); 
+                    insertProgram(1, newTitle, hour, minute);
+                    break;
+                case 2:
+                    if (channel2.isEmpty()) {
+                        JOptionPane.showMessageDialog(null, "This channel is empty");
                     }
-                }
-                
-                while (!aux.isEmpty()) {
-                    channel4.push(aux.pop());
-                }
-                insertProgram(4, newTitle, hour, minute);
-                break;
-            case 5:
-                if(channel5.isEmpty())
-                    JOptionPane.showMessageDialog(null,"This channel is empty");
-                while (!channel5.isEmpty()) {
-                    p = (Program) channel5.top();
-                    if (p.getTitle().equalsIgnoreCase(title)) {                        
-                        p.setSchedule(newSchedule);
-                        p.setTitle(newTitle);
-                        aux1.push(channel5.pop());
-                    } else {
-                        aux.push(channel5.pop()); 
+                    while (!channel2.isEmpty()) {
+                        p = (Program) channel2.top();
+                        if (p.getTitle().equalsIgnoreCase(title)) {
+                            p.setSchedule(newSchedule);
+                            p.setTitle(newTitle);
+                            aux1.push(channel2.pop());
+                        } else {
+                            aux.push(channel2.pop());
+                        }
                     }
-                }
-                
-                while (!aux.isEmpty()) {
-                    channel5.push(aux.pop());
-                }
-                insertProgram(5, newTitle, hour, minute);
-                break;
-            case 6:
-                if(channel6.isEmpty())
-                    JOptionPane.showMessageDialog(null,"This channel is empty");
-                while (!channel6.isEmpty()) {
-                    p = (Program) channel6.top();
-                    if (p.getTitle().equalsIgnoreCase(title)) {                     
-                        p.setSchedule(newSchedule);
-                        p.setTitle(newTitle);
-                        aux1.push(channel6.pop());
-                    } else {
-                        aux.push(channel6.pop()); 
+
+                    while (!aux.isEmpty()) {
+                        channel2.push(aux.pop());
                     }
-                }
-               
-                while (!aux.isEmpty()) {
-                    channel6.push(aux.pop());
-                }
-                insertProgram(6, newTitle, hour, minute);
-                break;
-            default:
-                JOptionPane.showMessageDialog(null,"Channel "+channelNumber+" does not exit");
+                    insertProgram(2, newTitle, hour, minute);
+                    break;
+                case 3:
+                    if (channel3.isEmpty()) {
+                        JOptionPane.showMessageDialog(null, "This channel is empty");
+                    }
+                    while (!channel3.isEmpty()) {
+                        p = (Program) channel3.top();
+                        if (p.getTitle().equalsIgnoreCase(title)) {
+                            p.setSchedule(newSchedule);
+                            p.setTitle(newTitle);
+                            aux1.push(channel3.pop());
+                        } else {
+                            aux.push(channel3.pop());
+                        }
+                    }
+
+                    while (!aux.isEmpty()) {
+                        channel3.push(aux.pop());
+                    }
+                    insertProgram(3, newTitle, hour, minute);
+                    break;
+                case 4:
+                    if (channel4.isEmpty()) {
+                        JOptionPane.showMessageDialog(null, "This channel is empty");
+                    }
+                    while (!channel4.isEmpty()) {
+                        p = (Program) channel4.top();
+                        if (p.getTitle().equalsIgnoreCase(title)) {
+                            p.setSchedule(newSchedule);
+                            p.setTitle(newTitle);
+                            aux1.push(channel4.pop());
+                        } else {
+                            aux.push(channel4.pop());
+                        }
+                    }
+
+                    while (!aux.isEmpty()) {
+                        channel4.push(aux.pop());
+                    }
+                    insertProgram(4, newTitle, hour, minute);
+                    break;
+                case 5:
+                    if (channel5.isEmpty()) {
+                        JOptionPane.showMessageDialog(null, "This channel is empty");
+                    }
+                    while (!channel5.isEmpty()) {
+                        p = (Program) channel5.top();
+                        if (p.getTitle().equalsIgnoreCase(title)) {
+                            p.setSchedule(newSchedule);
+                            p.setTitle(newTitle);
+                            aux1.push(channel5.pop());
+                        } else {
+                            aux.push(channel5.pop());
+                        }
+                    }
+
+                    while (!aux.isEmpty()) {
+                        channel5.push(aux.pop());
+                    }
+                    insertProgram(5, newTitle, hour, minute);
+                    break;
+                case 6:
+                    if (channel6.isEmpty()) {
+                        JOptionPane.showMessageDialog(null, "This channel is empty");
+                    }
+                    while (!channel6.isEmpty()) {
+                        p = (Program) channel6.top();
+                        if (p.getTitle().equalsIgnoreCase(title)) {
+                            p.setSchedule(newSchedule);
+                            p.setTitle(newTitle);
+                            aux1.push(channel6.pop());
+                        } else {
+                            aux.push(channel6.pop());
+                        }
+                    }
+
+                    while (!aux.isEmpty()) {
+                        channel6.push(aux.pop());
+                    }
+                    insertProgram(6, newTitle, hour, minute);
+                    break;
+                default:
+                    JOptionPane.showMessageDialog(null, "Channel " + channelNumber + " does not exit");
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Error when entering schedule data");
         }
     }
     
@@ -513,14 +531,14 @@ public class Channel{
 
     public static void main(String[] args) {
         Channel c = new Channel();
-        Program p = new Program();
-        c.insertProgram(1, "Noticias", 7, 00);
+        Program p = new Program(); 
+        c.insertProgram(1, "Noticias", 1, 11);
         c.insertProgram(1, "Novelas", 3, 00);
         c.insertProgram(1, "Chinamo", 8, 00);
         c.insertProgram(1, "Musica", 1, 00);
         
         //c.deleteProgram(1, "Novelas");
-        //c.editProgram(1, "noticias", "el chavo del 8", 9, 0);
+        c.editProgram(1, "noticias", "el chavo del 8", -9, 0);
       
         System.out.println(c.showChannel(1));
     }

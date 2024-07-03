@@ -184,7 +184,7 @@ public class DoubleLinkedList implements List {
     
      public String toString() {
         if (isEmpty()) {
-            return "DoubleLinkedList{ [] }"; // Lista vacía
+            return "DoubleLinkedList{ [] }"; 
         }
 
         String result = "DoubleLinkedList{ [";

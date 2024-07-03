@@ -30,8 +30,8 @@ public class TvOrStreamJP extends javax.swing.JPanel {
 
         setBackground(new java.awt.Color(0, 0, 0));
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 102, 102));
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("What do you want to see today?");
 
@@ -39,45 +39,61 @@ public class TvOrStreamJP extends javax.swing.JPanel {
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logo (1).png"))); // NOI18N
 
-        btnStream.setBackground(new java.awt.Color(204, 204, 255));
-        btnStream.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        btnStream.setBackground(new java.awt.Color(255, 102, 102));
+        btnStream.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnStream.setForeground(new java.awt.Color(255, 255, 255));
         btnStream.setText("Streaming");
 
-        btnTv.setBackground(new java.awt.Color(204, 204, 255));
-        btnTv.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        btnTv.setBackground(new java.awt.Color(255, 102, 102));
+        btnTv.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnTv.setForeground(new java.awt.Color(255, 255, 255));
         btnTv.setText("TV");
+        btnTv.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTvActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 650, Short.MAX_VALUE)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(170, 170, 170)
-                        .addComponent(btnTv)
-                        .addGap(102, 102, 102)
-                        .addComponent(btnStream)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnTv, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnStream))
+                .addGap(265, 265, 265))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel2)
+                .addContainerGap(544, Short.MAX_VALUE))
+            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(38, 38, 38)
                 .addComponent(jLabel1)
-                .addGap(46, 46, 46)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnTv, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnStream))
-                .addContainerGap(193, Short.MAX_VALUE))
+                .addGap(38, 38, 38)
+                .addComponent(btnTv)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnStream)
+                .addContainerGap(155, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnTvActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTvActionPerformed
+        JFContainer c = new JFContainer();
+        TvJP tv = new TvJP();
+        tv.setSize(c.InitialJP.getSize());
+        this.removeAll();
+        this.add(tv);
+        this.revalidate();
+        this.repaint();
+    }//GEN-LAST:event_btnTvActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
