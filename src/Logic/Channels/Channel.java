@@ -3,13 +3,14 @@ package Logic.Channels;
 
 import TDA.DoubleLinkedList.DoubleLinkedList;
 import TDA.DynamicStack.DynamicStack;
+import TDA.Graphs.GraphListAdjacency;
 import java.time.LocalTime;
 import javax.swing.JOptionPane;
 
 public class Channel{
     
    private DoubleLinkedList channelList; 
-   //private DoubleLinkedList channelList;  
+   private GraphListAdjacency channelGraph; 
    
    private DynamicStack channel1;
    private DynamicStack channel2;
@@ -20,6 +21,7 @@ public class Channel{
 
     public Channel() {
         this.channelList = new DoubleLinkedList();
+        this.channelGraph = new GraphListAdjacency(6);
         this.channel1 = new DynamicStack();
         this.channel2 = new DynamicStack();
         this.channel3 = new DynamicStack();
@@ -33,6 +35,16 @@ public class Channel{
         channelList.insert(channel4);
         channelList.insert(channel5);
         channelList.insert(channel6);
+        
+        channelGraph.addVertex(channel1);
+        channelGraph.addVertex(channel2);
+        channelGraph.addVertex(channel3);
+        channelGraph.addVertex(channel4);
+        channelGraph.addVertex(channel5);
+        channelGraph.addVertex(channel6);
+        
+        linkChannels();
+        
     }
 
     public DoubleLinkedList getChannelList() {
@@ -528,19 +540,125 @@ public class Channel{
                 break;
         } 
     }
+    
+    public void linkChannels(){
+         channelGraph.addEdge(channel1, channel2);
+         channelGraph.addEdge(channel1, channel3);
+         channelGraph.addEdge(channel1, channel4);
+         channelGraph.addEdge(channel1, channel5);
+         channelGraph.addEdge(channel1, channel6);
+         channelGraph.addEdge(channel2, channel3);
+         channelGraph.addEdge(channel2, channel4);
+         channelGraph.addEdge(channel2, channel5);
+         channelGraph.addEdge(channel2, channel6);
+         channelGraph.addEdge(channel3, channel4);
+         channelGraph.addEdge(channel3, channel5);
+         channelGraph.addEdge(channel3, channel6);
+         channelGraph.addEdge(channel4, channel5);
+         channelGraph.addEdge(channel4, channel6);
+         channelGraph.addEdge(channel5, channel6);
+         
+    }
+    
+    public DynamicStack assignChannel(int n){
+        DynamicStack c = new DynamicStack();
+        
+        switch (n) {
+            case 1:
+                c = channel1;
+                break;
+            case 2:
+                c = channel2;
+                break;
+            case 3:
+                c = channel3;
+                break;
+            case 4:
+                c = channel4;
+                break;
+            case 5:
+                c = channel5;
+                break;
+            case 6:
+                c = channel6;
+                break;
+        }
+        return c;
+    }
+    
+    public String channelNavigation(int currentChannel, int destinyChannel){
+        Program p = new Program();
+
+        switch (destinyChannel) {
+            case 1:
+                if(channelGraph.existsEdge(assignChannel(currentChannel), assignChannel(destinyChannel))){
+                    p = (Program) channel1.top();
+                }else{
+                    JOptionPane.showMessageDialog(null, "there is no connection between these channels");
+                }
+                
+                break;
+            case 2:
+                if(channelGraph.existsEdge(assignChannel(currentChannel), assignChannel(destinyChannel))){
+                    p = (Program) channel2.top();
+                }else{
+                    JOptionPane.showMessageDialog(null, "there is no connection between these channels");
+                }
+                
+                break;
+            case 3:
+                if(channelGraph.existsEdge(assignChannel(currentChannel), assignChannel(destinyChannel))){
+                    p = (Program) channel3.top();
+                }else{
+                    JOptionPane.showMessageDialog(null, "there is no connection between these channels");
+                }
+                
+                break;
+            case 4:
+                if(channelGraph.existsEdge(assignChannel(currentChannel), assignChannel(destinyChannel))){
+                    p = (Program) channel4.top();
+                }else{
+                    JOptionPane.showMessageDialog(null, "there is no connection between these channels");
+                }
+                
+                break;
+            case 5:
+                if(channelGraph.existsEdge(assignChannel(currentChannel), assignChannel(destinyChannel))){
+                    p = (Program) channel1.top();
+                }else{
+                    JOptionPane.showMessageDialog(null, "there is no connection between these channels");
+                }
+                
+                break;
+            case 6:
+                if(channelGraph.existsEdge(assignChannel(currentChannel), assignChannel(destinyChannel))){
+                    p = (Program) channel6.top();
+                }else{
+                    JOptionPane.showMessageDialog(null, "there is no connection between these channels");
+                }
+                
+                break;
+        }
+        return p.toString();
+    }
 
     public static void main(String[] args) {
         Channel c = new Channel();
-        Program p = new Program(); 
-        c.insertProgram(1, "Noticias", 1, 11);
-        c.insertProgram(1, "Novelas", 3, 00);
-        c.insertProgram(1, "Chinamo", 8, 00);
-        c.insertProgram(1, "Musica", 1, 00);
         
+        c.insertProgram(1, "Noticias", 1, 11);
+        c.insertProgram(2, "Novelas", 3, 00);
+        c.insertProgram(3, "Chinamo", 8, 00); 
+        c.insertProgram(4, "Musica", 1, 00);
+        c.insertProgram(5, "infantil", 1, 00);
+        c.insertProgram(6, "pokemon", 1, 00);
+        //c.linkChannels();
+        //c.channelGraph.addEdge(channel1, channel2);
         //c.deleteProgram(1, "Novelas");
-        c.editProgram(1, "noticias", "el chavo del 8", -9, 0);
-      
-        System.out.println(c.showChannel(1));
+        //c.editProgram(1, "noticias", "el chavo del 8", -9, 0);
+        System.out.println(c.channelNavigation(3, 1));
+        //System.out.println(c.assignChannel(1));
+        //System.out.println();
+        //System.out.println(c.showChannel(3));
     }
 }
         
