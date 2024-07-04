@@ -40,9 +40,8 @@ public class ArbolBinarioBusqueda implements Arbol {
 
     @Override
     public void insertar(Object element) throws RuntimeException {
-
-        if (!(element instanceof ViewingHistory.VisitRecord)) {
-            throw new IllegalArgumentException("El elemento debe ser de tipo ViewingHistory.VisitRecord");
+        if (!(element instanceof VisitRecord)) {
+            throw new IllegalArgumentException("El elemento debe ser de tipo VisitRecord");
         }
         raiz = insertar(raiz, element);
     }
@@ -232,9 +231,9 @@ public class ArbolBinarioBusqueda implements Arbol {
     //-------------------------------------------------------
     private int comparar(Object element1, Object element2) {
 
-        if (element1 instanceof ViewingHistory.VisitRecord && element2 instanceof ViewingHistory.VisitRecord) {
-            ViewingHistory.VisitRecord record1 = (ViewingHistory.VisitRecord) element1;
-            ViewingHistory.VisitRecord record2 = (ViewingHistory.VisitRecord) element2;
+        if (element1 instanceof VisitRecord && element2 instanceof VisitRecord) {
+            VisitRecord record1 = (VisitRecord) element1;
+            VisitRecord record2 = (VisitRecord) element2;
             return record1.compareTo(record2);
         }
 
@@ -247,5 +246,24 @@ public class ArbolBinarioBusqueda implements Arbol {
         }
 
         return 0;
+    }
+
+    public static class VisitRecord implements Comparable<VisitRecord> {
+
+        private int channelNumber;
+
+        public VisitRecord(int channelNumber) {
+            this.channelNumber = channelNumber;
+        }
+
+        @Override
+        public int compareTo(VisitRecord other) {
+            return Integer.compare(this.channelNumber, other.channelNumber);
+        }
+
+        @Override
+        public String toString() {
+            return "Channel " + channelNumber;
+        }
     }
 }
