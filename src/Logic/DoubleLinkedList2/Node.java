@@ -1,15 +1,16 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ * Universidad de Costa Rica | Algoritmos y Estructura de Datos
+ * Proyecto Final | Grupo #6 Algoritmicos
  */
 package Logic.DoubleLinkedList2;
 
 /**
  *
- * @author User
+ * @author Algoritmicos
  */
 public class Node {
-     public Object element;  // save  the nodo
+
+    public Object element;  // save  the nodo
     public Node next;       // Reference of next nodo
     public Node prev;       // Reference to the nodo last
 
@@ -18,5 +19,5 @@ public class Node {
         this.next = null;
         this.prev = null;
     }
-    
+
 }

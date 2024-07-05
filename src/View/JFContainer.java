@@ -1,9 +1,12 @@
-
+/*
+ * Universidad de Costa Rica | Algoritmos y Estructura de Datos
+ * Proyecto Final | Grupo #6 Algoritmicos
+ */
 package View;
 
 /**
  *
- * @author ADMIN
+ * @author Algoritmicos
  */
 public class JFContainer extends javax.swing.JFrame {
 
@@ -34,7 +37,7 @@ public class JFContainer extends javax.swing.JFrame {
         InitialJP.setBackground(new java.awt.Color(0, 0, 0));
 
         jButton1.setBackground(new java.awt.Color(204, 204, 255));
-        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 60)); // NOI18N
         jButton1.setText("Begin");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -43,7 +46,7 @@ public class JFContainer extends javax.swing.JFrame {
         });
 
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logo (1).png"))); // NOI18N
 
         javax.swing.GroupLayout InitialJPLayout = new javax.swing.GroupLayout(InitialJP);
@@ -53,21 +56,21 @@ public class JFContainer extends javax.swing.JFrame {
             .addGroup(InitialJPLayout.createSequentialGroup()
                 .addGroup(InitialJPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(InitialJPLayout.createSequentialGroup()
-                        .addGap(250, 250, 250)
-                        .addComponent(jButton1))
+                        .addGap(256, 256, 256)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(InitialJPLayout.createSequentialGroup()
-                        .addGap(265, 265, 265)
-                        .addComponent(jLabel1)))
-                .addContainerGap(274, Short.MAX_VALUE))
+                        .addContainerGap()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(272, Short.MAX_VALUE))
         );
         InitialJPLayout.setVerticalGroup(
             InitialJPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, InitialJPLayout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(189, 189, 189))
+                .addContainerGap()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(215, 215, 215)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(314, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

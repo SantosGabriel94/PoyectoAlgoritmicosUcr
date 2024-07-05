@@ -1,8 +1,12 @@
+/*
+ * Universidad de Costa Rica | Algoritmos y Estructura de Datos
+ * Proyecto Final | Grupo #6 Algoritmicos
+ */
 package Logic.domain;
 
 /**
  *
- * @author Marvin
+ * @author Algoritmicos
  */
 public class AdminLinkedList implements List {
 
@@ -16,7 +20,6 @@ public class AdminLinkedList implements List {
 
     @Override
     public int getSize() {
-        //GetSize optimo
         return cont;
 
     }
@@ -168,7 +171,6 @@ public class AdminLinkedList implements List {
         }
 
         return aux.element;
-
     }
 
 }

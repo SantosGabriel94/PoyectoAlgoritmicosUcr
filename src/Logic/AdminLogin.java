@@ -1,6 +1,6 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ * Universidad de Costa Rica | Algoritmos y Estructura de Datos
+ * Proyecto Final | Grupo #6 Algoritmicos
  */
 package Logic;
 
@@ -23,9 +23,10 @@ import org.xml.sax.SAXException;
 
 /**
  *
- * @author User
+ * @author Algoritmicos
  */
 public class AdminLogin {
+
     private Map<String, String> adminCredentials;
     private final String ADMIN_FILE_NAME = "admin_credentials.xml";
 
@@ -102,44 +103,37 @@ public class AdminLogin {
         }
     }
 
-
     public static void main(String[] args) {
         AdminLogin adminLogin = new AdminLogin();
-        
-        // Registro de administradores
+
+        // Administrator registration
         //String result1 = adminLogin.register("Gabriel", "Gabo08");
         //System.out.println(result1);
-        
         //String result2 = adminLogin.register("Sharon", "123");
         //System.out.println(result2);
-        
         //String result3 = adminLogin.register("Marvin", "12345");
         //System.out.println(result3);
-        
         //String result4 = adminLogin.register("Adrian", "536i19");
         //System.out.println(result4);
-        
-        // Intento de registro de un administrador ya registrado
+        //
+        // Attempt to register an already registered administrator
         //String result5 = adminLogin.register("Gabriel", "Gabo08");
         //System.out.println(result5);
-        
-        // Prueba de inicio de sesión de los administradores
-      //  String authResult1 = adminLogin.authenticate("Gabriel", "Gabo08");
+        //
+        // Administrator login test
+        //  String authResult1 = adminLogin.authenticate("Gabriel", "Gabo08");
         //System.out.println(authResult1);
-        
-       // String authResult2 = adminLogin.authenticate("Sharon", "123");
+        // String authResult2 = adminLogin.authenticate("Sharon", "123");
         //System.out.println(authResult2);
-        
-      //  String authResult3 = adminLogin.authenticate("Marvin", "12345");
+        //  String authResult3 = adminLogin.authenticate("Marvin", "12345");
         //System.out.println(authResult3);
-        
         //String authResult4 = adminLogin.authenticate("Adrian", "536i19");
-       // System.out.println(authResult4);
-        
-        // Intento de inicio de sesión con credenciales incorrectas
+        // System.out.println(authResult4);
+        //
+        // Login attempt with incorrect credentials
         String authResult5 = adminLogin.authenticate("Gabriel", "iuytrcfgvb");
         System.out.println(authResult5);
-        
+
         String authResult6 = adminLogin.authenticate("kjnbhgfvcdxfg", "password");
         System.out.println(authResult6);
     }

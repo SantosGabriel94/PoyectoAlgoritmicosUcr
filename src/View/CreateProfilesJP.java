@@ -1,4 +1,7 @@
-
+/*
+ * Universidad de Costa Rica | Algoritmos y Estructura de Datos
+ * Proyecto Final | Grupo #6 Algoritmicos
+ */
 package View;
 
 import Logic.Login;
@@ -7,27 +10,22 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author ADMIN
+ * @author Algoritmicos
  */
 public class CreateProfilesJP extends javax.swing.JPanel {
-    
+
     private Login login;
     private String username;
 
     /**
      * Creates new form CreateProfilesJP
      */
-    public CreateProfilesJP(Login login,String username) {
+    public CreateProfilesJP(Login login, String username) {
         this.login = login;
         this.username = username;
         initComponents();
-        // Configuración inicial de los campos.
-        
-       // preloadUserData();
-        
-        
+        // preloadUserData();
     }
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -49,19 +47,25 @@ public class CreateProfilesJP extends javax.swing.JPanel {
 
         setBackground(new java.awt.Color(0, 0, 0));
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 102, 102));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Create your profile");
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 102, 102));
         jLabel2.setText("Username");
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 102, 102));
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("Age");
 
+        txtAge.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txtAge.setBorder(null);
+
+        txtProfileName.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txtProfileName.setBorder(null);
         txtProfileName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtProfileNameActionPerformed(evt);
@@ -69,7 +73,7 @@ public class CreateProfilesJP extends javax.swing.JPanel {
         });
 
         btnCreatProfile.setBackground(new java.awt.Color(204, 204, 255));
-        btnCreatProfile.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnCreatProfile.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnCreatProfile.setText("Creat");
         btnCreatProfile.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -81,7 +85,10 @@ public class CreateProfilesJP extends javax.swing.JPanel {
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logo (1).png"))); // NOI18N
         jLabel5.setText("jLabel5");
 
+        btnCancel.setBackground(new java.awt.Color(255, 102, 102));
+        btnCancel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnCancel.setText("Cancel");
+        btnCancel.setBorderPainted(false);
         btnCancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCancelActionPerformed(evt);
@@ -92,122 +99,112 @@ public class CreateProfilesJP extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 650, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel2))
-                .addGap(65, 65, 65)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtAge, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtProfileName, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(171, 171, 171))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(280, 280, 280)
-                        .addComponent(btnCreatProfile))
-                    .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnCancel))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(184, 184, 184)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(89, 89, 89)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtProfileName, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtAge, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(352, 352, 352)
+                        .addComponent(btnCreatProfile)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(81, 81, 81)
                 .addComponent(jLabel1)
-                .addGap(18, 18, 18)
+                .addGap(39, 39, 39)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2)
                     .addComponent(txtProfileName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(32, 32, 32)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4)
                     .addComponent(txtAge, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(btnCreatProfile, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(72, 72, 72)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 228, Short.MAX_VALUE)
                 .addComponent(btnCancel)
-                .addGap(24, 24, 24))
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    
-    
-    
-    
-    
     private void btnCreatProfileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreatProfileActionPerformed
-       String profileName = txtProfileName.getText().trim();
-    if (profileName.isEmpty()) {
-        JOptionPane.showMessageDialog(this, "El nombre del perfil no puede estar vacío.", "Error", JOptionPane.ERROR_MESSAGE);
-        return;
-    }
-
-    int age;
-    try {
-        age = Integer.parseInt(txtAge.getText().trim());
-    } catch (NumberFormatException e) {
-        JOptionPane.showMessageDialog(this, "La edad debe ser un número válido.", "Error", JOptionPane.ERROR_MESSAGE);
-        return;
-    }
-
-    User user = login.getUser(username);
-    if (user == null) {
-        JOptionPane.showMessageDialog(this, "No se encontró el usuario.", "Error", JOptionPane.ERROR_MESSAGE);
-        return;
-    }
-
-    if (user.agregarPerfil(profileName, age)) {
-        login.saveUsers();  // Guardar los cambios en el archivo XML.
-        int option = JOptionPane.showConfirmDialog(this,
-            "Perfil creado exitosamente. ¿Desea agregar otro perfil?",
-            "Perfil Creado",
-            JOptionPane.YES_NO_OPTION,
-            JOptionPane.QUESTION_MESSAGE);
-
-        if (option == JOptionPane.YES_OPTION) {
-            txtProfileName.setText("");  // Limpiar campo de nombre del perfil
-            txtAge.setText("");  // Limpiar campo de edad
-        } else {
-            // Cambiar a la pantalla de inicio de sesión
-            changeToLoginPanel();
+        String profileName = txtProfileName.getText().trim();
+        if (profileName.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "The profile name cannot be empty.", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
         }
-    } else {
-        JOptionPane.showMessageDialog(this, "No se pudo agregar el perfil. Puede que el perfil ya exista o hayas alcanzado el límite de perfiles.", "Error", JOptionPane.ERROR_MESSAGE);
-    }
-     
+
+        int age;
+        try {
+            age = Integer.parseInt(txtAge.getText().trim());
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "The age must be a valid number.", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        User user = login.getUser(username);
+        if (user == null) {
+            JOptionPane.showMessageDialog(this, "The user was not found.", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        if (user.agregarPerfil(profileName, age)) {
+            login.saveUsers();  // Guardar los cambios en el archivo XML.
+            int option = JOptionPane.showConfirmDialog(this,
+                    "Profile created successfully. Do you want to add another profile?",
+                    "Profile Created",
+                    JOptionPane.YES_NO_OPTION,
+                    JOptionPane.QUESTION_MESSAGE);
+
+            if (option == JOptionPane.YES_OPTION) {
+                txtProfileName.setText("");  // Clear profile name field
+                txtAge.setText("");  // Clear age field
+            } else {
+                changeToLoginPanel();
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "Could not add profile. The profile may already exist or you may have reached the profile limit.", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+
     }//GEN-LAST:event_btnCreatProfileActionPerformed
 
-    
-    
-    
-    
-    
     private void txtProfileNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtProfileNameActionPerformed
-       
+
     }//GEN-LAST:event_txtProfileNameActionPerformed
 
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
-        
+        changeToLoginPanel();
     }//GEN-LAST:event_btnCancelActionPerformed
 
-    
     private void changeToLoginPanel() {
-    UserLoginJP loginPanel = new UserLoginJP(); // Asume que tienes un constructor adecuado para UserLoginJP
-    loginPanel.setSize(this.getSize());
-    this.removeAll();
-    this.add(loginPanel);
-    this.revalidate();
-    this.repaint();
-}
+        UserLoginJP loginPanel = new UserLoginJP();
+        loginPanel.setSize(this.getSize());
+        this.removeAll();
+        this.add(loginPanel);
+        this.revalidate();
+        this.repaint();
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JToggleButton btnCancel;

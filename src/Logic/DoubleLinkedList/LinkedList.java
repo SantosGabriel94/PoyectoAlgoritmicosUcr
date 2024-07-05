@@ -1,18 +1,20 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ * Universidad de Costa Rica | Algoritmos y Estructura de Datos
+ * Proyecto Final | Grupo #6 Algoritmicos
  */
 package Logic.DoubleLinkedList;
+
 import java.util.Stack;
 
 /**
  *
- * @author User
+ * @author Algoritmicos
  */
-public class LinkedList implements List{
-    public Node start;            // Referencia al inicio de la lista
-    private Node end;              // Referencia al final de la lista
-    private Stack<Node> history;   // Pila para mantener el historial de cambios
+public class LinkedList implements List {
+
+    public Node start;             // Reference to the beginning of the list
+    private Node end;              // Reference at the end of the list
+    private Stack<Node> history;   // Stack to maintain change history
 
     public LinkedList() {
         start = null;
@@ -47,7 +49,7 @@ public class LinkedList implements List{
     @Override
     public void insert(Object element) {
         if (element == null) {
-            throw new IllegalArgumentException("No se puede insertar un elemento nulo en la lista.");
+            throw new IllegalArgumentException("Cannot insert a null element into the list.");
         }
 
         Node newNode = new Node(element);
@@ -65,7 +67,7 @@ public class LinkedList implements List{
     @Override
     public void deleteByElement(Object element) {
         if (isEmpty()) {
-            throw new RuntimeException("No se puede eliminar de una lista vacía.");
+            throw new RuntimeException("Cannot remove from an empty list.");
         }
 
         Node aux = start;
@@ -87,16 +89,15 @@ public class LinkedList implements List{
                 aux.prev.next = aux.next;
                 aux.next.prev = aux.prev;
             }
-            history.push(start); // Guardar el estado actual en la pila
+            history.push(start); // Save current state to stack
         }
     }
 
-    // Métodos restantes implementados de acuerdo a la interfaz List
-
+    // Remaining methods implemented according to the List interface
     @Override
     public int getByPosition(Object element) {
         if (isEmpty()) {
-            throw new RuntimeException("Lista vacía.");
+            throw new RuntimeException("Empty list.");
         }
 
         Node aux = start;
@@ -116,7 +117,7 @@ public class LinkedList implements List{
     @Override
     public boolean exists(Object element) {
         if (isEmpty()) {
-            throw new RuntimeException("Lista vacía.");
+            throw new RuntimeException("Empty list.");
         }
 
         Node aux = start;
@@ -134,11 +135,11 @@ public class LinkedList implements List{
     @Override
     public void deleteByPosition(int position) {
         if (isEmpty()) {
-            throw new RuntimeException("Lista vacía.");
+            throw new RuntimeException("Empty list.");
         }
 
         if (position < 1 || position > getSize()) {
-            throw new RuntimeException("Posición inválida.");
+            throw new RuntimeException("Invalid position.");
         }
 
         Node toDelete = start;
@@ -166,7 +167,7 @@ public class LinkedList implements List{
     @Override
     public Object firstInList() {
         if (isEmpty()) {
-            throw new RuntimeException("Lista vacía.");
+            throw new RuntimeException("Empty list.");
         }
 
         return start.element;
@@ -175,11 +176,10 @@ public class LinkedList implements List{
     @Override
     public Object lastInList() {
         if (isEmpty()) {
-            throw new RuntimeException("Lista vacía.");
+            throw new RuntimeException("Empty list.");
         }
 
         return end.element;
     }
 
-    
 }

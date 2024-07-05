@@ -1,9 +1,10 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ * Universidad de Costa Rica | Algoritmos y Estructura de Datos
+ * Proyecto Final | Grupo #6 Algoritmicos
  */
 package Logic;
 //import Logic.graphUser.GraphUser;
+
 import graphUser.GraphUser;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -24,10 +25,9 @@ import java.util.Map;
 
 import org.w3c.dom.NodeList;
 
-
 /**
  *
- * @author User
+ * @author Algoritmicos
  */
 public class Login {
 
@@ -39,8 +39,8 @@ public class Login {
     public Login() {
         credentials = loadCredentials();
         users = new ArrayList<>();
-        graphUser = new GraphUser(5000); // 5 debido a que solo se permiten 5 perfiles
-        loadUsers(); // Cargar usuarios desde el archivo XML
+        graphUser = new GraphUser(5000); // 5 because only 5 profiles are allowed
+        loadUsers(); // Load users from XML file
     }
 
     public boolean authenticate(String username, String password) {
@@ -50,17 +50,17 @@ public class Login {
 
     public boolean register(String username, String password, int age) {
         if (credentials.containsKey(username)) {
-            return false; // Usuario ya registrado
+            return false; // Already registered user
         }
         credentials.put(username, password);
         saveCredentials();
 
         User newUser = new User(username, password, age);
-        newUser.agregarPerfil(username, age); // Crear perfil por defecto
+        newUser.agregarPerfil(username, age); // Create default profile
 
         users.add(newUser);
         saveUsers();
-        return true; // Registro exitoso
+        return true; // Successful registration
     }
 
     private Map<String, String> loadCredentials() {
@@ -131,14 +131,14 @@ public class Login {
                 int age = ageStr.isEmpty() ? 0 : Integer.parseInt(ageStr);
                 User user = new User(username, password, age);
 
-                user.getProfiles().clear(); // Limpiar la lista de perfiles antes de cargar nuevos
+                user.getProfiles().clear(); // Clear the list of profiles before uploading new ones
                 NodeList profileList = node.getElementsByTagName("profile");
                 for (int i = 0; i < profileList.getLength(); i++) {
                     Element profileElement = (Element) profileList.item(i);
                     String profileName = profileElement.getAttribute("name");
                     int profileAge = Integer.parseInt(profileElement.getAttribute("age"));
                     user.agregarPerfil(profileName, profileAge);
-                    graphUser.addVertex(new Profile(profileName, profileAge)); // Agregar perfil al grafo
+                    graphUser.addVertex(new Profile(profileName, profileAge)); // Add profile to network
                 }
 
                 users.add(user);
@@ -159,13 +159,13 @@ public class Login {
             for (User user : users) {
                 Element userElement = doc.createElement("user");
                 userElement.setAttribute("username", user.getUsername());
-                userElement.setAttribute("age", String.valueOf(user.getEdad()));
+                userElement.setAttribute("age", String.valueOf(user.getAge()));
 
                 Element passwordElement = doc.createElement("password");
                 passwordElement.appendChild(doc.createTextNode(user.getPassword()));
                 userElement.appendChild(passwordElement);
 
-                // Guardar perfiles del usuario
+                // Save user profiles
                 Element profilesElement = doc.createElement("profiles");
                 userElement.appendChild(profilesElement);
 
@@ -195,10 +195,62 @@ public class Login {
                 return user;
             }
         }
-        return null; // Usuario no encontrado
+        return null; // User not found
     }
 
     public GraphUser getGraphUser() {
         return graphUser;
     }
+    
+    public GraphUser getUserProfiles(String username) {
+    GraphUser userProfilesGraph = new GraphUser(5000); 
+    File file = new File(FILE_NAME);
+    if (!file.exists()) {
+        return userProfilesGraph; 
+    }
+    try {
+        DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+        DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+        Document doc = dBuilder.parse(file);
+        doc.getDocumentElement().normalize();
+        NodeList userList = doc.getElementsByTagName("user");
+
+        for (int i = 0; i < userList.getLength(); i++) {
+            Element userElement = (Element) userList.item(i);
+            String xmlUsername = userElement.getAttribute("username");
+
+            if (xmlUsername.equals(username)) {
+                NodeList profileList = userElement.getElementsByTagName("profile");
+                for (int j = 0; j < profileList.getLength(); j++) {
+                    Element profileElement = (Element) profileList.item(j);
+                    String profileName = profileElement.getAttribute("name");
+                    int profileAge = Integer.parseInt(profileElement.getAttribute("age"));
+                    Profile profile = new Profile(profileName, profileAge);
+                    userProfilesGraph.addVertex(profile); 
+                }
+                break; 
+            }
+        }
+    } catch (ParserConfigurationException | SAXException | IOException e) {
+        e.printStackTrace();
+    }
+    return userProfilesGraph; 
+}
+
+
+    
+    public static void main(String[] args) {
+        Login login = new Login();
+
+        // Nombre de usuario a buscar
+        String usernameToSearch = "Adrian";
+
+        // Obtener el grafo de perfiles del usuario
+        GraphUser userProfilesGraph = login.getUserProfiles(usernameToSearch);
+
+        // Imprimir los perfiles del usuario
+        System.out.println("Perfiles del usuario " + usernameToSearch);
+        System.out.println(userProfilesGraph);
+    }
+    
 }

@@ -1,8 +1,12 @@
+/*
+ * Universidad de Costa Rica | Algoritmos y Estructura de Datos
+ * Proyecto Final | Grupo #6 Algoritmicos
+ */
 package Logic.domain;
 
 /**
  *
- * @author Marvin
+ * @author Algoritmicos
  */
 public interface List {
 

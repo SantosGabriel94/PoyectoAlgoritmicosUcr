@@ -1,14 +1,15 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ * Universidad de Costa Rica | Algoritmos y Estructura de Datos
+ * Proyecto Final | Grupo #6 Algoritmicos
  */
 package Logic;
 
 /**
  *
- * @author User
+ * @author Algoritmicos
  */
-public class TVOption {   
+public class TVOption {
+
     public static String TV_CABLE = "Cable TV";
-    public static String STREAMING = "Streaming";    
+    public static String STREAMING = "Streaming";
 }

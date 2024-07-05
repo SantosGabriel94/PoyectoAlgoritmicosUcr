@@ -1,3 +1,7 @@
+/*
+ * Universidad de Costa Rica | Algoritmos y Estructura de Datos
+ * Proyecto Final | Grupo #6 Algoritmicos
+ */
 package Logic.DoubleLinkedList2;
 
 import java.io.File;
@@ -7,7 +11,12 @@ import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.List;
 
+/**
+ *
+ * @author Algoritmicos
+ */
 public class MovimientosCarrusel {
+
     private List<String> imagenes;
     private int currentImageIndex;
 
@@ -33,10 +42,10 @@ public class MovimientosCarrusel {
                 String path = recurso.getPath();
                 File directorio = new File(path);
                 if (directorio.isDirectory()) {
-                    File[] archivos = directorio.listFiles((dir, name) -> 
-                        name.toLowerCase().endsWith(".jpg") ||
-                        name.toLowerCase().endsWith(".png") ||
-                        name.toLowerCase().endsWith(".jpeg")
+                    File[] archivos = directorio.listFiles((dir, name)
+                            -> name.toLowerCase().endsWith(".jpg")
+                            || name.toLowerCase().endsWith(".png")
+                            || name.toLowerCase().endsWith(".jpeg")
                     );
                     if (archivos != null) {
                         for (File archivo : archivos) {
@@ -82,5 +91,3 @@ public class MovimientosCarrusel {
         return currentImageIndex;
     }
 }
-
-

@@ -1,3 +1,7 @@
+/*
+ * Universidad de Costa Rica | Algoritmos y Estructura de Datos
+ * Proyecto Final | Grupo #6 Algoritmicos
+ */
 package graphUser;
 
 import Logic.Profile;
@@ -7,6 +11,10 @@ import java.util.Stack;
 import java.util.List;
 import java.util.ArrayList;
 
+/**
+ *
+ * @author Algoritmicos
+ */
 public class GraphUser implements Graph {
 
     // Atributos
@@ -168,24 +176,15 @@ public class GraphUser implements Graph {
     }
 
     @Override
-    public String toString() {
+   public String toString() {
         StringBuilder result = new StringBuilder();
-        result.append("Graph information:\n");
-        result.append("----------------------------------\n");
         for (int i = 0; i < cont; i++) {
             if (vertex[i].element instanceof Profile) {
                 Profile profile = (Profile) vertex[i].element;
-                result.append("Vertex ").append(i).append(": Profile [Name: ").append(profile.getNameProfile()).append(", Age: ").append(profile.getAge()).append("]\n");
+                result.append(profile.getNameProfile()).append("       ");
             }
         }
-        result.append("\nEdges of the graph:\n");
-        for (int i = 0; i < cont; i++) {
-            for (int j = 0; j < cont; j++) {
-                if (edgeMatrix[i][j] != (Object) 0) {
-                    result.append(vertex[i].element).append(" -------> ").append(vertex[j].element).append("\n");
-                }
-            }
-        }
+        
         return result.toString();
     }
 }

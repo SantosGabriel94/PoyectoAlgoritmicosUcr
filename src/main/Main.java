@@ -1,16 +1,14 @@
 /*
  * Universidad de Costa Rica | Algoritmos y Estructura de Datos
- * Proyecto Final | Grupo #6
+ * Proyecto Final | Grupo #6 Algoritmicos
  */
 package main;
 
-import Logic.Login;
-import View.CreateProfilesJP;
 import View.JFContainer;
 
 /**
  *
- * @author Grupo#6
+ * @author Algoritmicos
  */
 public class Main {
 
@@ -21,8 +19,7 @@ public class Main {
         JFContainer gui = new JFContainer();
         gui.setVisible(true);
         gui.setLocationRelativeTo(null);
-        
-        
-    }
+
+    } 
 
 }

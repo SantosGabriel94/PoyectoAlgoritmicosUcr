@@ -1,15 +1,16 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ * Universidad de Costa Rica | Algoritmos y Estructura de Datos
+ * Proyecto Final | Grupo #6 Algoritmicos
  */
 package Logic.Cola;
 
 /**
  *
- * @author User
+ * @author Algoritmicos
  */
 public class Node {
-     int value;
+
+    int value;
     int priority;
     Node next;
 
@@ -18,5 +19,5 @@ public class Node {
         this.priority = priority;
         this.next = null;
     }
-        
+
 }

@@ -1,6 +1,6 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ * Universidad de Costa Rica | Algoritmos y Estructura de Datos
+ * Proyecto Final | Grupo #6 Algoritmicos
  */
 package Logic;
 
@@ -9,22 +9,22 @@ package Logic;
 import java.util.List;
 import java.util.ArrayList;
 
-
 /**
  *
- * @author User
+ * @author Algoritmicos
  */
 public class User {
+
     private String username;
     private String password;
-    private int edad;
+    private int age;
     private List<Profile> profiles;
 
-    public User(String username, String password, int edad) {
+    public User(String username, String password, int age) {
         this.username = username;
         this.password = password;
-        this.edad = edad;
-        this.profiles = new ArrayList<>(); // Inicializamos la lista de perfiles como ArrayList
+        this.age = age;
+        this.profiles = new ArrayList<>(); // We initialize the list of profiles as ArrayList
     }
 
     public String getUsername() {
@@ -43,12 +43,12 @@ public class User {
         this.password = password;
     }
 
-    public int getEdad() {
-        return edad;
+    public int getAge() {
+        return age;
     }
 
-    public void setEdad(int edad) {
-        this.edad = edad;
+    public void setAge(int age) {
+        this.age = age;
     }
 
     public List<Profile> getProfiles() {
@@ -59,16 +59,14 @@ public class User {
         this.profiles = profiles;
     }
 
-    public boolean agregarPerfil(String nombre, int edad) {
+    public boolean agregarPerfil(String name, int age) {
         if (profiles.size() >= 5) {
-            System.out.println("No se pueden agregar más perfiles. Límite alcanzado.");
+            System.out.println("No more profiles can be added. Limit reached.");
             return false;
         }
-        Profile nuevoPerfil = new Profile(nombre, edad); // Creamos un nuevo perfil
-        profiles.add(nuevoPerfil); // Agregamos el perfil a la lista 'profiles'
-        System.out.println("Perfil agregado correctamente.");
+        Profile newProfile = new Profile(name, age); // We create a new profile
+        profiles.add(newProfile); // We add the profile to the 'profiles' list
+        System.out.println("Profile added successfully.");
         return true;
     }
 }
-    
-

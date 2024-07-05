@@ -1,6 +1,6 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ * Universidad de Costa Rica | Algoritmos y Estructura de Datos
+ * Proyecto Final | Grupo #6 Algoritmicos
  */
 package Logic.DoubleLinkedList2;
 
@@ -8,18 +8,17 @@ import java.util.Stack;
 
 /**
  *
- * @author User
+ * @author Algoritmicos
  */
 public class LinkedList implements List {
 
     public Node start;            // Referencia al inicio de la lista
     private Node end;              // Referencia al final de la lista
     private Stack<Node> history;   // Pila para mantener el historial de cambios
-    
 
     public LinkedList() {
         start = null;
-        end = null; 
+        end = null;
         history = new Stack<>();
     }
 
@@ -95,7 +94,7 @@ public class LinkedList implements List {
     }
 
     // Métodos restantes implementados de acuerdo a la interfaz List
-    @Override 
+    @Override
     public Object getByPosition(int position) {
         if (isEmpty()) {
             throw new RuntimeException("Lista vacía.");
@@ -135,13 +134,13 @@ public class LinkedList implements List {
     public void deleteByPosition(int position) {
         if (isEmpty()) {
             throw new RuntimeException("Lista vacía.");
-        } 
+        }
         if (position < 1 || position > getSize()) {
             throw new RuntimeException("Posición inválida.");
         }
 
-Node toDelete = start;
-int currentPosition = 1;
+        Node toDelete = start;
+        int currentPosition = 1;
 
         while (currentPosition < position) {
             toDelete = toDelete.next;

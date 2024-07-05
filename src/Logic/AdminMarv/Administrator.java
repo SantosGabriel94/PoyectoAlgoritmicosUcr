@@ -1,31 +1,37 @@
+/*
+ * Universidad de Costa Rica | Algoritmos y Estructura de Datos
+ * Proyecto Final | Grupo #6 Algoritmicos
+ */
 package Logic.AdminMarv;
-
-
 
 import java.util.LinkedList;
 import java.util.List;
 
+/**
+ *
+ * @author Algoritmicos
+ */
 public class Administrator {
 
     private List<Movie> films;
     private List<Serie> series;
     private List<Program> programs;
 
-    //Inicializa las listas de películas, series y programas como listas vacías
+    //Initializes movie, series, and show lists as empty lists
     public Administrator() {
         this.films = new LinkedList<>();
         this.series = new LinkedList<>();
         this.programs = new LinkedList<>();
     }
 
-    // Métodos para agregar, editar y eliminar peliculas
+    // Methods to add, edit and delete movies
     public void addMovie(String title, String genre, String description, String pathImage) {
         validate(title, "Title");
         validate(genre, "Genre");
         validate(description, "Description");
         validate(pathImage, "Path Image");
 
-        // Verifica si ya existe una película con el mismo título
+        // Check if a movie with the same title already exists
         if (findMovie(title) != null) {
             throw new ListException("Movie with the same title already exists.");
         }
@@ -34,7 +40,8 @@ public class Administrator {
         films.add(newMovie);
     }
 
-    public void editMovie(String nameMovie, String newTitle, String newGenre, String newDescription, String newPathImage) {
+    public void editMovie(String nameMovie, String newTitle, String newGenre,
+            String newDescription, String newPathImage) {
         validate(newTitle, "New Title");
         validate(newGenre, "New Genre");
         validate(newDescription, "New Description");
@@ -63,7 +70,7 @@ public class Administrator {
         throw new ListException("No movie found with the specified name.");
     }
 
-    // Busca una película por su título
+    // Search a movie by its title
     public Movie findMovie(String nameMovie) {
         for (Movie movie : films) {
             if (movie.getTitle().equals(nameMovie)) {
@@ -73,14 +80,15 @@ public class Administrator {
         return null;
     }
 
-    // Métodos para agregar, editar y eliminar series
-    public void addSeries(String title, String genre, String description, String pathImage) {
+    // Methods to add, edit and delete series
+    public void addSeries(String title, String genre, String description,
+            String pathImage) {
         validate(title, "Title");
         validate(genre, "Genre");
         validate(description, "Description");
         validate(pathImage, "Path Image");
 
-        // Verifica si ya existe una serie con el mismo título
+        // Check if a series with the same title already exists
         if (findSeries(title) != null) {
             throw new ListException("Series with the same title already exists.");
         }
@@ -88,7 +96,8 @@ public class Administrator {
         series.add(newSeries);
     }
 
-    public void editSeries(String nameSeries, String newTitle, String newGenre, String newDescription, String newPathImage) {
+    public void editSeries(String nameSeries, String newTitle, String newGenre,
+            String newDescription, String newPathImage) {
         validate(newTitle, "New Title");
         validate(newGenre, "New Genre");
         validate(newDescription, "New Description");
@@ -117,7 +126,7 @@ public class Administrator {
         throw new ListException("No series found with the specified name.");
     }
 
-    // Busca una serie por su título
+    // Search a series by its title
     public Serie findSeries(String nameSeries) {
         for (Serie serie : series) {
             if (serie.getTitle().equals(nameSeries)) {
@@ -127,14 +136,14 @@ public class Administrator {
         return null;
     }
 
-    // Métodos para agregar, editar y eliminar programas, cambia la hora
+    // Methods to add, edit and delete programs, change the time
     public void addProgram(String name, String type, String startTime, String pathImage) {
         validate(name, "Name");
         validate(type, "Type");
         validate(startTime, "Start Time");
         validate(pathImage, "Path Image");
 
-        // Verifica si ya existe un programa con el mismo nombre
+        // Check if a program with the same name already exists
         if (findProgram(name) != null) {
             throw new ListException("Program with the same name already exists.");
         }
@@ -144,7 +153,8 @@ public class Administrator {
         programs.add(newProgram);
     }
 
-    public void editProgram(String nameProgram, String newName, String newType, String newPathImage) {
+    public void editProgram(String nameProgram, String newName, String newType,
+            String newPathImage) {
         validate(newName, "New Name");
         validate(newType, "New Type");
         validate(newPathImage, "New Path Image");
@@ -171,7 +181,7 @@ public class Administrator {
         throw new ListException("No program found with the specified name.");
     }
 
-    // Busca un programa por su nombre
+    // Search for a program by name
     public Program findProgram(String nameProgram) {
         for (Program program : programs) {
             if (program.getName().equals(nameProgram)) {
@@ -194,7 +204,7 @@ public class Administrator {
         throw new ListException("No program found with the specified name.");
     }
 
-    // Metodo de validación de cadenas no nulas ni vacías
+    // Non-null or empty string validation method
     private void validate(String value, String fieldName) {
         if (value == null || value.trim().isEmpty()) {
             throw new IllegalArgumentException(fieldName + " cannot be null or empty.");

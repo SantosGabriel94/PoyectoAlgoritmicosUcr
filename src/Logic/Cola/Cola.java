@@ -1,15 +1,16 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ * Universidad de Costa Rica | Algoritmos y Estructura de Datos
+ * Proyecto Final | Grupo #6 Algoritmicos
  */
 package Logic.Cola;
 
 /**
  *
- * @author User
+ * @author Algoritmicos
  */
 public class Cola {
-     private Node first;
+
+    private Node first;
     private Node last;
 
     public Cola() {
@@ -110,36 +111,37 @@ public class Cola {
         first = null;
         last = null;
     }
+
     public static void main(String[] args) {
         Cola queue = new Cola();
 
-        // Prueba agregar elementos
+        // Try adding elements
         queue.add(5, 1);
         queue.add(6, 0);
         queue.add(7, 3);
-        System.out.print("Estado de la cola despues de agregar: ");
-        queue.viewQueue(); 
+        System.out.print("Queue status after adding: ");
+        queue.viewQueue();
 
-        // Prueba eliminar elemento
-        System.out.println("Elemento eliminado: " + queue.remove()); 
-        System.out.print("Estado de la cola despues de eliminar: ");
-        queue.viewQueue(); // Esperado: 5 7
+        // Try delete element
+        System.out.println("Deleted item: " + queue.remove());
+        System.out.print("Queue status after deletion: ");
+        queue.viewQueue(); // Expected: 5 7
 
-        // Prueba consultar el primer elemento
-        System.out.println("Primer elemento: " + queue.peek()); // Esperado: 
+        // Try checking the first item
+        System.out.println("First element: " + queue.peek()); // Expected: 
 
-        // Prueba comprobar si está vacía
-        System.out.println("¿Esta vacia la cola? " + queue.isEmpty()); 
+        // Try checking if it is empty
+        System.out.println("¿Esta vacia la cola? " + queue.isEmpty());
 
-        // Prueba eliminar por valor
+        // Try delete by value
         queue.add(10, 2);
-        System.out.println("Eliminar elemento con valor 5: " + queue.removeByValue(5));//true
-        System.out.print("Estado de la cola despues de eliminar el valor 5: ");
-        queue.viewQueue(); 
+        System.out.println("Delete element with value 5: " + queue.removeByValue(5));//true
+        System.out.print("Queue status after removing value 5: ");
+        queue.viewQueue();
 
-        // Prueba eliminar todos los elementos
+        // Try deleting all items
         queue.removeAll();
-        System.out.println("¿Esta vacia la cola despues de eliminar todo? " + queue.isEmpty()); // true
+        System.out.println("Is the queue empty after deleting everything?" + queue.isEmpty()); // true
     }
-   
+
 }

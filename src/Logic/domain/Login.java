@@ -1,5 +1,9 @@
-
+/*
+ * Universidad de Costa Rica | Algoritmos y Estructura de Datos
+ * Proyecto Final | Grupo #6 Algoritmicos
+ */
 package Logic.domain;
+
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.xml.sax.SAXException;
@@ -17,13 +21,13 @@ import java.util.Map;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
-
 /**
  *
- * @author User
+ * @author Algoritmicos
  */
 public class Login {
-   private Map<String, String> credentials;
+
+    private Map<String, String> credentials;
     private final String FILE_NAME = "credentials.xml";
 
     public Login() {
@@ -37,11 +41,11 @@ public class Login {
 
     public boolean register(String username, String password) {
         if (credentials.containsKey(username)) {
-            return false; // Usuario ya registrado
+            return false; // Already registered user
         }
         credentials.put(username, password);
         saveCredentials();
-        return true; // Registro exitoso
+        return true; // Successful registration
     }
 
     private Map<String, String> loadCredentials() {
