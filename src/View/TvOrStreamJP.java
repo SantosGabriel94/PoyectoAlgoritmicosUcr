@@ -48,6 +48,11 @@ public class TvOrStreamJP extends javax.swing.JPanel {
         btnStream.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         btnStream.setText("Streaming");
         btnStream.setBorder(null);
+        btnStream.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnStreamActionPerformed(evt);
+            }
+        });
 
         btnTv.setBackground(new java.awt.Color(204, 204, 255));
         btnTv.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
@@ -110,6 +115,15 @@ public class TvOrStreamJP extends javax.swing.JPanel {
         this.revalidate();
         this.repaint();
     }//GEN-LAST:event_btnTvActionPerformed
+
+    private void btnStreamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStreamActionPerformed
+        MovieCarousel carousel = new MovieCarousel();
+        carousel.setSize(this.getSize());
+        this.removeAll();
+        this.add(carousel);
+        this.revalidate();
+        this.repaint();
+    }//GEN-LAST:event_btnStreamActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

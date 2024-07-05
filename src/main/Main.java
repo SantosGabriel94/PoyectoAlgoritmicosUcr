@@ -20,6 +20,6 @@ public class Main {
         gui.setVisible(true);
         gui.setLocationRelativeTo(null);
 
-    } 
+    }
 
 }
